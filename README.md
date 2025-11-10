@@ -11,7 +11,7 @@ Once the dataset was cleaned and the variables confirmed to be reliable, we proc
 # Normalize Data
 To mitigate the impact of outliers and improve model performance, we normalized the data before feeding it into the model. This step helps ensure that all features contribute equally to the learning process.
 # Evaluate the model
-We trained a logistic regression model to predict the target variable using the input features. After training on the training set and evaluating on the test set, the model achieved an accuracy of 0.98. This high accuracy indicates strong predictive performance on unseen data.
+We trained a logistic regression model to predict the target variable using the input features. After training on the training set and evaluating on the test set, the model achieved an accuracy of 0.97. This high accuracy indicates strong predictive performance on unseen data.
 However, accuracy alone may not be sufficient for all applications. Depending on the context, other metrics such as precision, recall, and F1 score may be more informative. We used Scikit-learn’s classification_report to compute these additional metrics.
 # Conclusion
 We completed our analysis using the Breast Cancer Wisconsin dataset to build a model that predicts whether a cell is malignant based on its nucleus measurements.
