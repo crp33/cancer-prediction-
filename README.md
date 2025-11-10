@@ -1,8 +1,5 @@
 # Introduction
 We will be working with the Breast Cancer Wisconsin (Diagnostic) dataset, which contains detailed measurements of cell nuclei. Each observation includes a diagnosis indicating whether the cell is malignant or benign. Our objective is to train a model that can accurately predict whether a given cell is malignant based solely on its measurements.
-# Data from Breast Cancer Wisconsin (Diagnostic) Data Set
-Features are computed from digitized images of fine needle aspirates (FNA) of breast masses. These features describe various characteristics of the cell nuclei present in the image. The 3-dimensional space used for these measurements is described in:
-K. P. Bennett and O. L. Mangasarian: "Robust Linear Programming Discrimination of Two Linearly Inseparable Sets", Optimization Methods and Software 1, 1992, 23-34.
 # How we cleaned the data
 Using a heatmap, we visualized the presence of missing values in the dataset. One column was entirely composed of NAs, so we dropped it. We also removed the ID column, as it does not contribute to the predictive task.
 Additionally, we converted the target variable into binary format 1 for malignant and 0 for benign to prepare it for model training.
