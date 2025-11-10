@@ -15,4 +15,4 @@ We trained a logistic regression model to predict the target variable using the 
 However, accuracy alone may not be sufficient for all applications. Depending on the context, other metrics such as precision, recall, and F1 score may be more informative. We used Scikit-learn’s classification_report to compute these additional metrics.
 # Conclusion
 We completed our analysis using the Breast Cancer Wisconsin dataset to build a model that predicts whether a cell is malignant based on its nucleus measurements.
-This model, once validated and deployed, could be a valuable tool in clinical settings—helping medical professionals make faster and more accurate diagnostic decisions.
+This model, once validated and deployed, could be a valuable tool in clinical settings helping medical professionals make faster and more accurate diagnostic decisions.
