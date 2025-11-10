@@ -5,7 +5,7 @@ Features are computed from digitized images of fine needle aspirates (FNA) of br
 K. P. Bennett and O. L. Mangasarian: "Robust Linear Programming Discrimination of Two Linearly Inseparable Sets", Optimization Methods and Software 1, 1992, 23-34.
 # How we cleaned the data
 Using a heatmap, we visualized the presence of missing values in the dataset. One column was entirely composed of NAs, so we dropped it. We also removed the ID column, as it does not contribute to the predictive task.
-Additionally, we converted the target variable into binary format—1 for malignant and 0 for benign—to prepare it for model training.
+Additionally, we converted the target variable into binary format 1 for malignant and 0 for benign to prepare it for model training.
 # Logistic Regression
 Once the dataset was cleaned and the variables confirmed to be reliable, we proceeded to train our model. We first separated the target variable (referred to as "y") from the predictors (referred to as "X").
 # Normalize Data
