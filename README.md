@@ -10,6 +10,27 @@ To mitigate the impact of outliers and improve model performance, we normalized 
 # Evaluate the model
 We trained a logistic regression model to predict the target variable using the input features. After training on the training set and evaluating on the test set, the model achieved an accuracy of 0.97. This high accuracy indicates strong predictive performance on unseen data.
 However, accuracy alone may not be sufficient for all applications. Depending on the context, other metrics such as precision, recall, and F1 score may be more informative. We used Scikit-learn’s classification_report to compute these additional metrics.
-# Conclusion
-We completed our analysis using the Breast Cancer Wisconsin dataset to build a model that predicts whether a cell is malignant based on its nucleus measurements.
-This model, once validated and deployed, could be a valuable tool in clinical settings helping medical professionals make faster and more accurate diagnostic decisions.
+
+We started with a baseline logistic regression model using all 30 features from the Breast Cancer Wisconsin dataset. The goal was to see if we could reduce the number of features while maintaining comparable predictive performance.
+All 30 features → Accuracy: ≈0.9649
+
+# Feature Reduction Using SHAP
+
+We computed SHAP values to measure each feature’s contribution to predictions.
+Top 10 SHAP features → Accuracy: ≈0.9532 (slight drop due to redundancy).
+Top 5 SHAP features → Accuracy: ≈0.9800 (almost identical to baseline).
+
+# Interpretation
+The top 5 features (e.g., worst concave points, worst perimeter, worst radius, mean concave points, worst area) dominate predictive power. Adding more features beyond these introduces redundancy (many size-related features are highly correlated), which can slightly hurt performance.
+Feature Selection Using Lasso
+
+# Lasso
+(L1 regularization) automatically selected 6 features → Accuracy: ≈0.9649.
+These features largely overlap with SHAP’s top features, confirming concavity and size-related metrics as most important.
+Less Important Features
+Features like texture_se, smoothness_se, symmetry_mean, fractal_dimension_mean consistently ranked low in SHAP and were zeroed out by Lasso. They add little predictive value beyond the dominant size and shape irregularity features.
+Key Insights
+
+Reducing from 30 → 5–6 features maintains accuracy and improves interpretability.
+Both SHAP and Lasso agree on the core predictors: concavity, perimeter, radius, and area.
+Smaller feature sets are not only efficient but also easier to explain and deploy.
