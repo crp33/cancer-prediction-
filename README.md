@@ -20,17 +20,12 @@ We computed SHAP values to measure each feature’s contribution to predictions.
 Top 10 SHAP features → Accuracy: ≈0.9532 (slight drop due to redundancy).
 Top 5 SHAP features → Accuracy: ≈0.9800 (almost identical to baseline).
 
-# Interpretation
-The top 5 features (e.g., worst concave points, worst perimeter, worst radius, mean concave points, worst area) dominate predictive power. Adding more features beyond these introduces redundancy (many size-related features are highly correlated), which can slightly hurt performance.
-Feature Selection Using Lasso
+# Both SHAP and Lasso agree on the core predictive features:
 
-# Lasso
-(L1 regularization) automatically selected 6 features → Accuracy: ≈0.9649.
-These features largely overlap with SHAP’s top features, confirming concavity and size-related metrics as most important.
-Less Important Features
-Features like texture_se, smoothness_se, symmetry_mean, fractal_dimension_mean consistently ranked low in SHAP and were zeroed out by Lasso. They add little predictive value beyond the dominant size and shape irregularity features.
-Key Insights
+worst concave points, worst perimeter, worst radius, mean concave points, worst area
+These features capture tumor size and shape irregularity, which are the strongest indicators of malignancy.
 
-Reducing from 30 → 5–6 features maintains accuracy and improves interpretability.
-Both SHAP and Lasso agree on the core predictors: concavity, perimeter, radius, and area.
-Smaller feature sets are not only efficient but also easier to explain and deploy.
+# Why this matters:
+
+Adding more features beyond these top predictors introduces redundancy and can slightly reduce performance.
+Features like texture_se, smoothness_se, symmetry_mean, fractal_dimension_mean consistently ranked low in SHAP and were zeroed out by Lasso, meaning they add little value.
